@@ -146,6 +146,10 @@ class Company(HtmlResource):
     def products(self):
         return iter(HtmlParser(self.child_url('products'), Product))
 
+    @property
+    def topics(self):
+        return iter(AtomParser(self.child_url('topics'), Topic))
+
 
 class Product(HtmlResource):
     
